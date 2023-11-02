@@ -21,7 +21,7 @@
 }
 
 .container {
-  height: 57.313rem;
+  height: 919px;
 }
 
 body {
@@ -42,6 +42,7 @@ body {
   padding: 3rem;
   gap: 4rem;
   padding-bottom: 6rem;
+  list-style: none;
 }
 
 .container-main {
@@ -85,6 +86,31 @@ body {
 button:hover,
 button:focus {
   background-color: var(--button-hover-color);
+}
+
+/* REGISTER-PAGE */
+
+.register-page {
+  background-color: var(--light-gray-background-color);
+  height: 57.313rem;
+  background-image: url('./assets/paws.svg'), url('./assets/background-top.svg'),
+    url('./assets/background-left.svg');
+
+  background-position: top right, top left, left 90%;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: 50% 30%, contain, 20%;
+}
+
+.register-page-p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.register-page-p p {
+  color: var(--blue-color);
 }
 
 /* FOOTER */
