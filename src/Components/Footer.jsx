@@ -3,7 +3,7 @@ function Footer() {
     <div>
       <footer className="footer">
         <p>
-          2023 - Desenvolvido por{' '}
+          &copy; 2023 - Desenvolvido por{' '}
           <a
             href="https://github.com/gilbertouk"
             target="_blank"

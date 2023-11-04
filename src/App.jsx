@@ -1,11 +1,11 @@
 import './App.css';
-import HomePage from './pages/homepage';
+import Routers from './routes/Routers';
 
 function App() {
   return (
-    <>
-      <HomePage />
-    </>
+    <main className="app">
+      <Routers />
+    </main>
   );
 }
 

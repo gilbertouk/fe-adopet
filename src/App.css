@@ -21,7 +21,7 @@
 }
 
 .container {
-  height: 57.313rem;
+  height: 919px;
 }
 
 body {
@@ -42,6 +42,7 @@ body {
   padding: 3rem;
   gap: 4rem;
   padding-bottom: 6rem;
+  list-style: none;
 }
 
 .container-main {
@@ -85,6 +86,81 @@ body {
 button:hover,
 button:focus {
   background-color: var(--button-hover-color);
+}
+
+/* REGISTER-PAGE */
+
+.register-page {
+  background-color: #ffffff;
+  height: 57.313rem;
+  background-image: url('./assets/paws.svg'), url('./assets/background-top.svg'),
+    url('./assets/background-left.svg');
+
+  background-position: top right, top left, left 90%;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: 50% 30%, contain, 20%;
+}
+
+.register-page-p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.register-page-p p {
+  color: var(--blue-color);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.register-form label {
+  color: var(--gray-color);
+}
+
+.register-form input {
+  background-color: var(--light-gray-background-color);
+  color: var(--blue-color);
+  height: 2.5rem;
+  border-radius: 0.375rem;
+  border: none;
+  text-align: center;
+  font-size: 0.75rem;
+  min-width: 19.5rem;
+}
+
+.register-form textarea {
+  background-color: var(--light-gray-background-color);
+  color: var(--blue-color);
+  height: 3.5rem;
+  resize: none;
+  border-radius: 0.375rem;
+  border: none;
+  text-align: justify;
+  font-size: 0.75rem;
+  min-width: 19.5rem;
+}
+
+.register-form p {
+  color: var(--button-color);
+}
+
+/* LOGIN PAGE */
+
+.forgotten-password {
+  color: var(--coral-color);
+  font-size: 0.75rem;
+  text-decoration: underline;
+  background-color: #ffffff;
+  border: none;
+  margin-bottom: 1rem;
 }
 
 /* FOOTER */
