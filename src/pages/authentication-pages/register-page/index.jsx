@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Footer from '../../../Components/Footer';
 import Header from '../../../Components/Header';
-import RegisterForm from '../../../Components/RegisterForm';
-import RegisterFormComplete from '../../../Components/RegisterFormComplete';
+import RegisterForm from './RegisterForm';
+import RegisterFormComplete from './RegisterFormComplete';
 
 function RegisterPage() {
   const [userData, setUserData] = useState({});

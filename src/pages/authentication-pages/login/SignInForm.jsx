@@ -2,10 +2,9 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { login } from '../api/axios';
-import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import AuthContext from '../context/AuthProvider';
+import { login } from '../../../api/axios';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const schema = z.object({
   email: z
@@ -26,7 +25,10 @@ function SignInForm() {
   });
 
   const navigate = useNavigate();
-  const { setAuth } = useContext(AuthContext);
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/home';
+
+  const { setAuth } = useAuth();
 
   const onSubmit = async (data) => {
     try {
@@ -38,7 +40,7 @@ function SignInForm() {
       setAuth({ email, password, accessToken, refreshToken });
       console.log(response.data);
 
-      navigate('/');
+      navigate(from, { replace: true });
     } catch (error) {
       console.log(error);
     }

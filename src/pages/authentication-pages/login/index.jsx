@@ -1,6 +1,6 @@
 import Footer from '../../../Components/Footer';
 import Header from '../../../Components/Header';
-import SignInForm from '../../../Components/SignInForm';
+import SignInForm from './SignInForm';
 
 function LoginPage() {
   const iconsArr = [

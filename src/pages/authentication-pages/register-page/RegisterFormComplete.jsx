@@ -2,10 +2,9 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AuthContext from '../context/AuthProvider';
-import { postUser } from '../api/axios';
+import { postUser } from '../../../api/axios';
+import useAuth from '../../../hooks/useAuth';
 
 const schema = z.object({
   name: z
@@ -31,7 +30,7 @@ function RegisterFormComplete({ userData }) {
   });
 
   const navigate = useNavigate();
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth } = useAuth();
 
   const onSubmit = async (data) => {
     try {
@@ -44,7 +43,7 @@ function RegisterFormComplete({ userData }) {
       setAuth({ email, password, accessToken, refreshToken });
       console.log(response.data);
 
-      navigate('/');
+      navigate('/home');
     } catch (error) {
       console.log(error);
     }
