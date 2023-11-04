@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import Button from '../../Components/Button';
-import Footer from '../../Components/Footer';
-import Header from '../../Components/Header';
+import Button from '../../../Components/Button';
+import Footer from '../../../Components/Footer';
+import Header from '../../../Components/Header';
 
-function HomePage() {
+function InitialPage() {
   const navigate = useNavigate();
 
   function handleRegister(e) {
@@ -43,4 +43,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default InitialPage;

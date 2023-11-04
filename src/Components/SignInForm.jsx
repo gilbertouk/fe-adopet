@@ -2,7 +2,10 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { useState } from 'react';
+import { login } from '../api/axios';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import AuthContext from '../context/AuthProvider';
 
 const schema = z.object({
   email: z
@@ -11,12 +14,9 @@ const schema = z.object({
   password: z
     .string({ required_error: 'Password is required' })
     .min(8, 'Password must be 8 or more characters long'),
-  confirmPassword: z
-    .string({ required_error: 'Confirm Password is required' })
-    .min(8, 'Password must be 8 or more characters long'),
 });
 
-function RegisterForm({ setUserData, setNext }) {
+function SignInForm() {
   const {
     register,
     handleSubmit,
@@ -25,15 +25,22 @@ function RegisterForm({ setUserData, setNext }) {
     resolver: zodResolver(schema),
   });
 
-  const [passwordError, setPasswordError] = useState(false);
+  const navigate = useNavigate();
+  const { setAuth } = useContext(AuthContext);
 
-  const onSubmit = (data) => {
-    if (data.password !== data.confirmPassword) {
-      setPasswordError(true);
-    } else {
-      setPasswordError(false);
-      setUserData(data);
-      setNext(true);
+  const onSubmit = async (data) => {
+    try {
+      const response = await login(data);
+      const accessToken = response?.data?.accessToken;
+      const refreshToken = response?.data?.refreshToken;
+      const email = data?.email;
+      const password = data?.password;
+      setAuth({ email, password, accessToken, refreshToken });
+      console.log(response.data);
+
+      navigate('/');
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -49,23 +56,13 @@ function RegisterForm({ setUserData, setNext }) {
         {...register('password')}
         placeholder="Enter your password"
         type="password"
-        onChange={() => setPasswordError(false)}
       />
 
       {errors.password?.message && <p>{errors.password?.message}</p>}
 
-      <label>Confirm password</label>
-      <input
-        {...register('confirmPassword')}
-        placeholder="Confirm your password"
-        type="password"
-        onChange={() => setPasswordError(false)}
-      />
-
-      {errors.confirmPassword?.message && (
-        <p>{errors.confirmPassword?.message}</p>
-      )}
-      {passwordError && <p>The passwords do not match</p>}
+      <button className="forgotten-password">
+        I&rsquo;ve forgotten my password
+      </button>
 
       <div className="button-container">
         <button type="submit">Next</button>
@@ -74,4 +71,4 @@ function RegisterForm({ setUserData, setNext }) {
   );
 }
 
-export default RegisterForm;
+export default SignInForm;

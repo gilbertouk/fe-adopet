@@ -1,12 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
-import HomePage from '../pages/home-page';
-import RegisterPage from '../pages/register-page';
+import InitialPage from '../pages/authentication-pages/initial';
+import RegisterPage from '../pages/authentication-pages/register-page';
+import LoginPage from '../pages/authentication-pages/login';
 
 function Routers() {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<InitialPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
 }
