@@ -1,11 +1,20 @@
 /* eslint-disable react/prop-types */
-function Header({ iconsArr }) {
+import { Link } from 'react-router-dom';
+
+function Header() {
+  const iconsArr = [
+    { src: 'src/assets/home.svg', alt: 'home icon', link: '/' },
+    { src: 'src/assets/messages.svg', alt: 'messages icon', link: '/contact' },
+  ];
+
   return (
     <ul className="icon-container">
       {iconsArr.map((icon, index) => {
         return (
           <li key={index}>
-            <img src={icon.src} alt={icon.alt} />
+            <Link to={icon.link}>
+              <img src={icon.src} alt={icon.alt} />
+            </Link>
           </li>
         );
       })}

@@ -16,15 +16,10 @@ function InitialPage() {
     navigate('/login');
   }
 
-  const iconsArr = [
-    { src: 'src/assets/home.svg', alt: 'home icon' },
-    { src: 'src/assets/messages.svg', alt: 'messages icon' },
-  ];
-
   return (
     <>
       <div className="container">
-        <Header iconsArr={iconsArr} />
+        <Header />
         <div className="container-main">
           <img src="src/assets/logo.svg" alt="logo" />
           <h1>Welcome!</h1>
