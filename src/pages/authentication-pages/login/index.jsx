@@ -3,15 +3,10 @@ import Header from '../../../Components/Header';
 import SignInForm from './SignInForm';
 
 function LoginPage() {
-  const iconsArr = [
-    { src: 'src/assets/home.svg', alt: 'home icon' },
-    { src: 'src/assets/messages.svg', alt: 'messages icon' },
-  ];
-
   return (
     <>
       <div className="register-page">
-        <Header iconsArr={iconsArr} />
+        <Header />
         <div className="container-main">
           <img src="src/assets/logo-blue.svg" alt="logo" />
           <div className="register-page-p">
