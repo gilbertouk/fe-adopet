@@ -17,7 +17,7 @@ function InitialPage() {
   }
 
   return (
-    <>
+    <main className="initial-page">
       <div className="container">
         <Header />
         <div className="container-main">
@@ -34,7 +34,7 @@ function InitialPage() {
         </div>
       </div>
       <Footer />
-    </>
+    </main>
   );
 }
 
