@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useNavigate, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from '../../../api/axios';
 
 const schema = z.object({
@@ -54,8 +54,15 @@ function SignInForm() {
       }
     } catch (error) {
       console.log(error);
+      setIsError(true);
+
+      setTimeout(() => {
+        setIsError(false);
+      }, 1000);
     }
   };
+
+  useEffect(() => {}, [isError]);
 
   return (
     <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
@@ -80,7 +87,7 @@ function SignInForm() {
       {isError && <p>invalid email/password</p>}
 
       <div className="button-container">
-        <button type="submit">Next</button>
+        <button type="submit">Login</button>
       </div>
     </form>
   );

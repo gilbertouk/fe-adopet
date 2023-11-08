@@ -3,12 +3,19 @@ import Footer from '../../../Components/Footer';
 import { useEffect, useState } from 'react';
 import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useLogout from '../../../hooks/useLogout';
 
 const HomePage = () => {
   const [pets, setPets] = useState([]);
   const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
   const location = useLocation();
+  const logout = useLogout();
+
+  const signOut = async () => {
+    await logout();
+    navigate('/');
+  };
 
   useEffect(() => {
     const getPets = async () => {
@@ -33,7 +40,7 @@ const HomePage = () => {
 
   return (
     <div className="home-page-container">
-      <Header />
+      <Header signOut={signOut} />
       <p className="home-page-container-title">
         Hello! See the pets <br />
         available for adoption!
@@ -52,9 +59,18 @@ const HomePage = () => {
 
                 <p className="pet-card-texts-description">{pet.description}</p>
 
-                <p className="pet-card-texts-contact">
-                  Do you want this pet? click here.
-                </p>
+                <div className="contact-link">
+                  <img
+                    className="msg-icon"
+                    src="src/assets/msgicon.svg"
+                    alt="message icon"
+                  />
+                  <p className="pet-card-texts-contact">
+                    Do you want this pet?
+                    <br />
+                    click here.
+                  </p>
+                </div>
               </div>
             </div>
           );
