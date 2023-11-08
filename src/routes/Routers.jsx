@@ -4,6 +4,7 @@ import RegisterPage from '../pages/authentication-pages/register-page';
 import LoginPage from '../pages/authentication-pages/login';
 import HomePage from '../pages/protected-pages/home';
 import RequireAuth from '../Components/RequireAuth';
+import PersistLogin from '../Components/PersistLogin';
 
 function Routers() {
   return (
@@ -14,8 +15,10 @@ function Routers() {
       <Route path="/login" element={<LoginPage />} />
 
       {/* protect routes */}
-      <Route element={<RequireAuth />}>
-        <Route path="/home" element={<HomePage />} />
+      <Route element={<PersistLogin />}>
+        <Route element={<RequireAuth />}>
+          <Route path="/home" element={<HomePage />} />
+        </Route>
       </Route>
     </Routes>
   );

@@ -1,34 +1,46 @@
 import Header from '../../../Components/Header';
 import Footer from '../../../Components/Footer';
 import { useEffect, useState } from 'react';
-import { fetchAllPets } from '../../../api/axios';
+import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
+import { useLocation, useNavigate } from 'react-router-dom';
+import useLogout from '../../../hooks/useLogout';
 
-function HomePage() {
+const HomePage = () => {
   const [pets, setPets] = useState([]);
+  const axiosPrivate = useAxiosPrivate();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const logout = useLogout();
 
-  async function fetchPets() {
-    try {
-      const res = await fetchAllPets();
-      setPets(res.pets);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  const signOut = async () => {
+    await logout();
+    navigate('/');
+  };
 
   useEffect(() => {
-    fetchPets();
+    const getPets = async () => {
+      try {
+        const response = await axiosPrivate.get('/pets');
+        setPets(response.data.pets);
+      } catch (error) {
+        console.error(error);
+        navigate('/login', { state: { from: location }, replace: true });
+      }
+    };
+
+    getPets();
   }, []);
 
-  function calculate_age(dob) {
+  const calculate_age = (dob) => {
     const diff_ms = Date.now() - dob.getTime();
     const age_dt = new Date(diff_ms);
 
     return Math.abs(age_dt.getUTCFullYear() - 1970);
-  }
+  };
 
   return (
     <div className="home-page-container">
-      <Header />
+      <Header signOut={signOut} />
       <p className="home-page-container-title">
         Hello! See the pets <br />
         available for adoption!
@@ -47,9 +59,18 @@ function HomePage() {
 
                 <p className="pet-card-texts-description">{pet.description}</p>
 
-                <p className="pet-card-texts-contact">
-                  Do you want this pet? click here.
-                </p>
+                <div className="contact-link">
+                  <img
+                    className="msg-icon"
+                    src="src/assets/msgicon.svg"
+                    alt="message icon"
+                  />
+                  <p className="pet-card-texts-contact">
+                    Do you want this pet?
+                    <br />
+                    click here.
+                  </p>
+                </div>
               </div>
             </div>
           );
@@ -58,6 +79,6 @@ function HomePage() {
       <Footer />
     </div>
   );
-}
+};
 
 export default HomePage;

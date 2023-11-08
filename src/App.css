@@ -20,6 +20,13 @@
   color: #ffffff;
 }
 
+/* HEADER */
+
+.button-logout {
+  border: none;
+  background: none;
+}
+
 /* INITIAL PAGE */
 
 .container {
@@ -241,6 +248,18 @@ button:focus {
   text-align: left;
   color: var(--blue-color);
   font-size: 0.625rem;
+}
+
+.contact-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-link img {
+  height: 1.125rem;
+  width: 1.125rem;
 }
 
 /* FOOTER */
