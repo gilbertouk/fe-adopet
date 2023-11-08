@@ -2,9 +2,8 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { useNavigate } from 'react-router-dom';
-import { postUser } from '../../../api/axios';
-import useAuth from '../../../hooks/useAuth';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from '../../../api/axios';
 
 const schema = z.object({
   name: z
@@ -30,20 +29,13 @@ function RegisterFormComplete({ userData }) {
   });
 
   const navigate = useNavigate();
-  const { setAuth } = useAuth();
+  const location = useLocation();
 
   const onSubmit = async (data) => {
     try {
       const userToPost = { ...data, ...userData };
-      const response = await postUser(userToPost);
-      const accessToken = response?.data?.accessToken;
-      const refreshToken = response?.data?.refreshToken;
-      const email = userData?.email;
-      const password = userData?.password;
-      setAuth({ email, password, accessToken, refreshToken });
-      console.log(response.data);
-
-      navigate('/home');
+      await axios.post('/register', userToPost);
+      navigate('/login', { state: { from: location }, replace: true });
     } catch (error) {
       console.log(error);
     }

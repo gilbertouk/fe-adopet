@@ -2,9 +2,10 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { login } from '../../../api/axios';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { useState } from 'react';
+import axios from '../../../api/axios';
 
 const schema = z.object({
   email: z
@@ -24,6 +25,8 @@ function SignInForm() {
     resolver: zodResolver(schema),
   });
 
+  const [isError, setIsError] = useState(false);
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/home';
@@ -32,15 +35,23 @@ function SignInForm() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await login(data);
-      const accessToken = response?.data?.accessToken;
-      const refreshToken = response?.data?.refreshToken;
-      const email = data?.email;
-      const password = data?.password;
-      setAuth({ email, password, accessToken, refreshToken });
-      console.log(response.data);
+      const response = await axios.post('/login', data, {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+      });
 
-      navigate(from, { replace: true });
+      if (response.status === 200) {
+        setIsError(false);
+        const accessToken = response?.data?.accessToken;
+        const email = data?.email;
+        const password = data?.password;
+        setAuth({ email, password, accessToken });
+
+        navigate(from, { replace: true });
+      } else {
+        setIsError(true);
+        console.log(response.response.data.message);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -65,6 +76,8 @@ function SignInForm() {
       <button className="forgotten-password">
         I&rsquo;ve forgotten my password
       </button>
+
+      {isError && <p>invalid email/password</p>}
 
       <div className="button-container">
         <button type="submit">Next</button>
