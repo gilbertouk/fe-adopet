@@ -5,6 +5,7 @@ import LoginPage from '../pages/authentication-pages/login';
 import HomePage from '../pages/protected-pages/home';
 import RequireAuth from '../Components/RequireAuth';
 import PersistLogin from '../Components/PersistLogin';
+import Contact from '../pages/protected-pages/contact';
 
 function Routers() {
   return (
@@ -18,6 +19,7 @@ function Routers() {
       <Route element={<PersistLogin />}>
         <Route element={<RequireAuth />}>
           <Route path="/home" element={<HomePage />} />
+          <Route path="/contact" element={<Contact />} />
         </Route>
       </Route>
     </Routes>

@@ -4,8 +4,10 @@ import { useEffect, useState } from 'react';
 import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useLogout from '../../../hooks/useLogout';
+import usePet from '../../../hooks/usePet';
 
 const HomePage = () => {
+  const { setPet } = usePet();
   const [pets, setPets] = useState([]);
   const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
@@ -17,11 +19,16 @@ const HomePage = () => {
     navigate('/');
   };
 
+  const handlePetContact = (pet) => {
+    setPet({ ...pet });
+    navigate('/contact');
+  };
+
   useEffect(() => {
     const getPets = async () => {
       try {
-        const response = await axiosPrivate.get('/pets');
-        setPets(response.data.pets);
+        const response = await axiosPrivate.get('pets/available');
+        setPets(response.data.petsAvailable);
       } catch (error) {
         console.error(error);
         navigate('/login', { state: { from: location }, replace: true });
@@ -39,12 +46,14 @@ const HomePage = () => {
   };
 
   return (
-    <div className="home-page-container">
-      <Header signOut={signOut} />
-      <p className="home-page-container-title">
-        Hello! See the pets <br />
-        available for adoption!
-      </p>
+    <>
+      <div className="home-page-container">
+        <Header signOut={signOut} />
+        <p className="home-page-container-title">
+          Hello! See the pets <br />
+          available for adoption!
+        </p>
+      </div>
       <div className="pets-container">
         {pets.map((pet) => {
           return (
@@ -60,24 +69,31 @@ const HomePage = () => {
                 <p className="pet-card-texts-description">{pet.description}</p>
 
                 <div className="contact-link">
-                  <img
-                    className="msg-icon"
-                    src="src/assets/msgicon.svg"
-                    alt="message icon"
-                  />
-                  <p className="pet-card-texts-contact">
-                    Do you want this pet?
-                    <br />
-                    click here.
-                  </p>
+                  <button
+                    className="button-click-here"
+                    onClick={() => {
+                      handlePetContact(pet);
+                    }}
+                  >
+                    <img
+                      className="msg-icon"
+                      src="src/assets/msgicon.svg"
+                      alt="message icon"
+                    />
+                    <p className="pet-card-texts-contact">
+                      Do you want this pet?
+                      <br />
+                      click here.
+                    </p>
+                  </button>
                 </div>
               </div>
             </div>
           );
         })}
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 

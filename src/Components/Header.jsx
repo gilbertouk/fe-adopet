@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 function Header({ signOut }) {
   const iconsArrLogout = [
     { src: 'src/assets/home.svg', alt: 'home icon', link: '/' },
-    { src: 'src/assets/messages.svg', alt: 'messages icon', link: '/contact' },
+    { src: 'src/assets/messages.svg', alt: 'messages icon', link: '/support' },
   ];
 
   const iconsArrLogged = [
     { src: 'src/assets/home.svg', alt: 'home icon', link: '/home' },
-    { src: 'src/assets/messages.svg', alt: 'messages icon', link: '/contact' },
+    { src: 'src/assets/messages.svg', alt: 'messages icon', link: '/support' },
   ];
 
   // signOut
