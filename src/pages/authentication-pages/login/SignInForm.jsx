@@ -2,7 +2,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { useEffect, useState } from 'react';
 import axios from '../../../api/axios';
@@ -28,8 +28,6 @@ function SignInForm() {
   const [isError, setIsError] = useState(false);
 
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || '/home';
 
   const { setAuth } = useAuth();
 
@@ -43,10 +41,12 @@ function SignInForm() {
       setIsError(false);
       const accessToken = response?.data?.accessToken;
       const email = data?.email;
+      const name = response?.data?.name;
+      const phone = response?.data?.phone;
       // const password = data?.password;
-      setAuth({ email, accessToken });
+      setAuth({ email, accessToken, phone, name });
 
-      navigate(from, { replace: true });
+      navigate('/home', { replace: true });
     } catch (error) {
       console.log(error);
       setIsError(true);
