@@ -40,18 +40,13 @@ function SignInForm() {
         withCredentials: true,
       });
 
-      if (response.status === 200) {
-        setIsError(false);
-        const accessToken = response?.data?.accessToken;
-        const email = data?.email;
-        const password = data?.password;
-        setAuth({ email, password, accessToken });
+      setIsError(false);
+      const accessToken = response?.data?.accessToken;
+      const email = data?.email;
+      // const password = data?.password;
+      setAuth({ email, accessToken });
 
-        navigate(from, { replace: true });
-      } else {
-        setIsError(true);
-        console.log(response.response.data.message);
-      }
+      navigate(from, { replace: true });
     } catch (error) {
       console.log(error);
       setIsError(true);
