@@ -21,6 +21,8 @@ const useRefreshToken = () => {
         email: response.data.email,
         name: response.data.name,
         phone: response.data.phone,
+        urlPhoto: response.data.urlPhoto,
+        id: response.data.id,
       };
     });
     return response.data.accessToken;

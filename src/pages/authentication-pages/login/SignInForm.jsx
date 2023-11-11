@@ -43,8 +43,9 @@ function SignInForm() {
       const email = data?.email;
       const name = response?.data?.name;
       const phone = response?.data?.phone;
-      // const password = data?.password;
-      setAuth({ email, accessToken, phone, name });
+      const urlPhoto = response?.data?.urlPhoto;
+      const id = response?.data?.id;
+      setAuth({ email, accessToken, phone, name, urlPhoto, id });
 
       navigate('/home', { replace: true });
     } catch (error) {

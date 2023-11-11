@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
 
-function Header({ signOut }) {
+function Header({ signOut, urlPhoto }) {
+  const { auth } = useAuth();
+
   const iconsArrLogout = [
     { src: 'src/assets/home.svg', alt: 'home icon', link: '/' },
     { src: 'src/assets/messages.svg', alt: 'messages icon', link: '/support' },
@@ -11,14 +14,6 @@ function Header({ signOut }) {
     { src: 'src/assets/home.svg', alt: 'home icon', link: '/home' },
     { src: 'src/assets/messages.svg', alt: 'messages icon', link: '/support' },
   ];
-
-  // signOut
-  //   ? iconsArr.push({
-  //       src: 'src/assets/logout.svg',
-  //       alt: 'logout icon',
-  //       link: '/',
-  //     })
-  //   : '';
 
   if (!signOut) {
     return (
@@ -48,10 +43,20 @@ function Header({ signOut }) {
             </li>
           );
         })}
-        <li key={iconsArrLogged.length + 1}>
+        <li key={3}>
           <button onClick={signOut} className="button-logout">
             <img src="src/assets/logout.svg" alt="logout icon" />
           </button>
+        </li>
+
+        <li key={4}>
+          <Link to={'/profile'}>
+            <img
+              className="header-image-profile"
+              src={urlPhoto ? urlPhoto : auth.urlPhoto}
+              alt="profile image"
+            />
+          </Link>
         </li>
       </ul>
     );
