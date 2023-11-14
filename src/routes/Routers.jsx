@@ -7,6 +7,7 @@ import RequireAuth from '../Components/RequireAuth';
 import PersistLogin from '../Components/PersistLogin';
 import Contact from '../pages/protected-pages/contact';
 import Profile from '../pages/protected-pages/profile';
+import SupportPage from '../pages/authentication-pages/support';
 
 function Routers() {
   return (
@@ -15,6 +16,7 @@ function Routers() {
       <Route path="/" element={<InitialPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/support" element={<SupportPage />} />
 
       {/* protect routes */}
       <Route element={<PersistLogin />}>
