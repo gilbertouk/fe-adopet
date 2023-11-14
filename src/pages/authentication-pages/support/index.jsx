@@ -3,6 +3,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import Footer from '../../../Components/Footer';
 import Header from '../../../Components/Header';
+import useAuth from '../../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
+import useLogout from '../../../hooks/useLogout';
 
 const schema = z.object({
   name: z
@@ -31,6 +34,16 @@ const SupportPage = () => {
     resolver: zodResolver(schema),
   });
 
+  const { auth } = useAuth();
+
+  const navigate = useNavigate();
+  const logout = useLogout();
+
+  const signOut = async () => {
+    await logout();
+    navigate('/');
+  };
+
   const onSubmit = async (data) => {
     try {
       console.log(data);
@@ -39,8 +52,6 @@ const SupportPage = () => {
       resetField('phone');
       resetField('email');
       resetField('message');
-
-      // navigate('/login', { state: { from: location }, replace: true });
     } catch (error) {
       console.log(error);
     }
@@ -48,7 +59,7 @@ const SupportPage = () => {
 
   return (
     <div className="home-page-container">
-      <Header />
+      {auth.email ? <Header signOut={signOut} /> : <Header />}
       <p className="home-page-container-title">
         Send a message to <br /> the support:
       </p>

@@ -18,6 +18,16 @@ function Header({ signOut, urlPhoto }) {
   if (!signOut) {
     return (
       <ul className="icon-container">
+        <li key={5}>
+          <Link to={'/'}>
+            <img
+              className="logo-img-header"
+              src={'src/assets/logo.svg'}
+              alt={'adopet logo'}
+            />
+          </Link>
+        </li>
+
         {iconsArrLogout.map((icon, index) => {
           return (
             <li key={index}>
@@ -33,31 +43,43 @@ function Header({ signOut, urlPhoto }) {
 
   if (signOut) {
     return (
-      <ul className="icon-container">
-        {iconsArrLogged.map((icon, index) => {
-          return (
-            <li key={index}>
-              <Link to={icon.link}>
-                <img src={icon.src} alt={icon.alt} />
-              </Link>
-            </li>
-          );
-        })}
-        <li key={3}>
-          <button onClick={signOut} className="button-logout">
-            <img src="src/assets/logout.svg" alt="logout icon" />
-          </button>
-        </li>
+      <ul>
+        <div className="icon-container">
+          <li key={5}>
+            <Link to={'/home'}>
+              <img
+                className="logo-img-header"
+                src={'src/assets/logo.svg'}
+                alt={'adopet logo'}
+              />
+            </Link>
+          </li>
 
-        <li key={4}>
-          <Link to={'/profile'}>
-            <img
-              className="header-image-profile"
-              src={urlPhoto ? urlPhoto : auth.urlPhoto}
-              alt="profile image"
-            />
-          </Link>
-        </li>
+          {iconsArrLogged.map((icon, index) => {
+            return (
+              <li key={index}>
+                <Link to={icon.link}>
+                  <img src={icon.src} alt={icon.alt} />
+                </Link>
+              </li>
+            );
+          })}
+          <li key={3}>
+            <button onClick={signOut} className="button-logout">
+              <img src="src/assets/logout.svg" alt="logout icon" />
+            </button>
+          </li>
+
+          <li key={4}>
+            <Link to={'/profile'}>
+              <img
+                className="header-image-profile"
+                src={urlPhoto ? urlPhoto : auth.urlPhoto}
+                alt="profile image"
+              />
+            </Link>
+          </li>
+        </div>
       </ul>
     );
   }

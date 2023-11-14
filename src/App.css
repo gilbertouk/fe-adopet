@@ -1,7 +1,6 @@
 :root {
   --blue-color: #3772ff;
   --green-color: #36d6ad;
-  --coral-color: #fc7071;
   --cream-color: #fcf0e3;
   --gray-color: #737380;
   --light-gray-color: #bcbcbc;
@@ -9,6 +8,12 @@
   --primary-font: 'Poppins', sans-serif;
   --button-color: #fc7071;
   --button-hover-color: #ff9d9e;
+}
+
+body,
+#root,
+main {
+  min-height: 100vh;
 }
 
 * {
@@ -37,17 +42,25 @@
   height: 2.5rem;
 }
 
+.logo-img-header {
+  display: none;
+}
+
 /* INITIAL PAGE */
 
-.container {
-  height: 57.313rem;
+.text-others {
+  display: none;
+}
+
+.text-mobile {
+  display: flex;
 }
 
 .initial-page {
   background-image: url('./assets/background-top.svg'),
     url('assets/footer-img.svg'), url('./assets/background-right.svg');
 
-  background-position: top left, center 90%, right 40%;
+  background-position: top left, center 105%, right 40%;
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-size: contain, 16rem, 20%;
   background-color: var(--blue-color);
@@ -57,8 +70,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 3rem;
-  gap: 4rem;
+  padding-top: 3rem;
+  gap: 3.5rem;
   padding-bottom: 6rem;
   list-style: none;
 }
@@ -110,13 +123,13 @@ button:focus {
 
 .register-page {
   background-color: #ffffff;
-  height: 57.313rem;
+  /* height: 57.313rem; */
   background-image: url('./assets/paws.svg'), url('./assets/background-top.svg'),
     url('./assets/background-left.svg');
 
   background-position: top right, top left, left 90%;
   background-repeat: no-repeat, no-repeat, no-repeat;
-  background-size: 50% 30%, contain, 20%;
+  background-size: 40%, contain, 20%;
 }
 
 .register-page-p {
@@ -174,12 +187,16 @@ button:focus {
 /* LOGIN PAGE */
 
 .forgotten-password {
-  color: var(--coral-color);
+  color: var(--button-color);
   font-size: 0.75rem;
   text-decoration: underline;
   background-color: #ffffff;
   border: none;
   margin-bottom: 1rem;
+}
+
+.container-main {
+  min-height: 70vh;
 }
 
 /* PROTECTED HOME PAGE */
@@ -246,13 +263,6 @@ button:focus {
   font-size: 0.875rem;
   margin-bottom: 1.3rem;
 }
-
-/* .pet-card-texts-location {
-  text-align: left;
-  color: var(--blue-color);
-  font-size: 0.75rem;
-  margin-bottom: 0.3rem;
-} */
 
 .pet-card-texts-contact {
   text-align: left;
@@ -429,4 +439,105 @@ button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* TABLET */
+@media screen and (min-width: 768px) {
+  /* INITIAL PAGE */
+
+  .header-nav {
+    display: flex;
+  }
+
+  .icon-container {
+    padding-left: 3rem;
+    gap: 3rem;
+  }
+
+  .initial-page {
+    background-image: url('./assets/background-top.svg'),
+      url('assets/footer-img.svg'), url('./assets/background-right.svg');
+
+    background-position: top left, center 90%, right 40%;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: 70%, 16rem, 18%;
+    background-color: var(--blue-color);
+  }
+
+  .logo-img-header {
+    display: flex;
+    width: 80%;
+  }
+
+  .text-mobile {
+    display: none;
+  }
+
+  .text-others {
+    display: flex;
+  }
+
+  /* REGISTER PAGE */
+
+  .register-page {
+    background-color: #ffffff;
+    /* height: 57.313rem; */
+    background-image: url('./assets/paws.svg'),
+      url('./assets/background-top.svg'), url('./assets/background-right.svg');
+
+    background-position: top right, top left, right 60%;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: 25%, 75%, 12%;
+  }
+
+  /* PROTECTED HOME PAGE */
+
+  .home-page-container {
+    background-image: url('./assets/background-top.svg');
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 70%;
+  }
+
+  .home-page-container-title {
+    color: var(--blue-color);
+    text-align: center;
+    height: 6rem;
+    margin-top: 5rem;
+  }
+
+  .pets-container {
+    display: flex;
+    color: var(--blue-color);
+    flex-flow: row wrap;
+    gap: 1rem;
+    padding: 0 1.5rem;
+    justify-content: center;
+  }
+
+  .pet-card {
+    width: 20rem;
+    padding: 1rem;
+  }
+
+  /* PROTECTED CONTACT PAGE */
+
+  .contact-form-container {
+    background-color: var(--light-gray-background-color);
+    margin: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    border-radius: 6px;
+    width: 400px;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
 }
