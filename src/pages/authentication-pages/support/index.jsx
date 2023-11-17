@@ -58,7 +58,7 @@ const SupportPage = () => {
   };
 
   return (
-    <div className="home-page-container">
+    <div className="home-page-container ">
       {auth.email ? <Header signOut={signOut} /> : <Header />}
       <p className="home-page-container-title">
         Send a message to <br /> the support:

@@ -53,44 +53,47 @@ const HomePage = () => {
           Hello! See the pets <br />
           available for adoption!
         </p>
-      </div>
-      <div className="pets-container">
-        {pets.map((pet) => {
-          return (
-            <div className="pet-card" key={pet.id}>
-              <img src={pet.url_photo} alt="image of pet" />
-              <div className="pet-card-texts">
-                <h2>{pet.name}</h2>
 
-                <p className="pet-card-texts-age">
-                  {calculate_age(new Date(pet.age))} years
-                </p>
+        <div className="pets-container">
+          {pets.map((pet) => {
+            return (
+              <div className="pet-card" key={pet.id}>
+                <img src={pet.url_photo} alt="image of pet" />
+                <div className="pet-card-texts">
+                  <h2>{pet.name}</h2>
 
-                <p className="pet-card-texts-description">{pet.description}</p>
+                  <p className="pet-card-texts-age">
+                    {calculate_age(new Date(pet.age))} years
+                  </p>
 
-                <div className="contact-link">
-                  <button
-                    className="button-click-here"
-                    onClick={() => {
-                      handlePetContact(pet);
-                    }}
-                  >
-                    <img
-                      className="msg-icon"
-                      src="src/assets/msgicon.svg"
-                      alt="message icon"
-                    />
-                    <p className="pet-card-texts-contact">
-                      Do you want this pet?
-                      <br />
-                      click here.
-                    </p>
-                  </button>
+                  <p className="pet-card-texts-description">
+                    {pet.description}
+                  </p>
+
+                  <div className="contact-link">
+                    <button
+                      className="button-click-here"
+                      onClick={() => {
+                        handlePetContact(pet);
+                      }}
+                    >
+                      <img
+                        className="msg-icon"
+                        src="src/assets/msgicon.svg"
+                        alt="message icon"
+                      />
+                      <p className="pet-card-texts-contact">
+                        Do you want this pet?
+                        <br />
+                        click here.
+                      </p>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
       <Footer />
     </>
