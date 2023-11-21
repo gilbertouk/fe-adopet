@@ -58,48 +58,50 @@ const SupportPage = () => {
   };
 
   return (
-    <div className="home-page-container ">
-      {auth.email ? <Header signOut={signOut} /> : <Header />}
-      <p className="home-page-container-title">
-        Send a message to <br /> the support:
-      </p>
+    <div className="main">
+      <div className="home-page-container ">
+        {auth.email ? <Header signOut={signOut} /> : <Header />}
+        <p className="home-page-container-title">
+          Send a message to <br /> the support:
+        </p>
 
-      <div className="contact-form-container">
-        <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
-          <label>Name</label>
-          <input {...register('name')} placeholder="Enter your full name" />
+        <div className="contact-form-container">
+          <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
+            <label>Name</label>
+            <input {...register('name')} placeholder="Enter your full name" />
 
-          {errors.name?.message && <p>{errors.name?.message}</p>}
+            {errors.name?.message && <p>{errors.name?.message}</p>}
 
-          <label>Phone</label>
-          <input
-            {...register('phone')}
-            placeholder="Enter your phone number"
-            type="number"
-          />
+            <label>Phone</label>
+            <input
+              {...register('phone')}
+              placeholder="Enter your phone number"
+              type="number"
+            />
 
-          {errors.phone?.message && <p>{errors.phone?.message}</p>}
+            {errors.phone?.message && <p>{errors.phone?.message}</p>}
 
-          <label>Email</label>
-          <input
-            {...register('email')}
-            placeholder="Enter your email address"
-          />
+            <label>Email</label>
+            <input
+              {...register('email')}
+              placeholder="Enter your email address"
+            />
 
-          {errors.email?.message && <p>{errors.email?.message}</p>}
+            {errors.email?.message && <p>{errors.email?.message}</p>}
 
-          <label>Message</label>
-          <textarea
-            {...register('message')}
-            placeholder="Write your message."
-          />
+            <label>Message</label>
+            <textarea
+              {...register('message')}
+              placeholder="Write your message."
+            />
 
-          {errors.message?.message && <p>{errors.message?.message}</p>}
+            {errors.message?.message && <p>{errors.message?.message}</p>}
 
-          <div className="button-container button-contact-container">
-            <button type="submit">Send</button>
-          </div>
-        </form>
+            <div className="button-container button-contact-container">
+              <button type="submit">Send</button>
+            </div>
+          </form>
+        </div>
       </div>
       <Footer />
     </div>

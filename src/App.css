@@ -14,6 +14,7 @@ body,
 #root,
 main {
   min-height: 100vh;
+  height: 100vh;
 }
 
 * {
@@ -211,6 +212,8 @@ button:hover {
   background-position: top left;
   background-size: auto;
   font-size: 1rem;
+  min-height: calc(100vh - 6.5rem);
+  overflow: auto;
 }
 
 .home-page-container-title {
@@ -443,6 +446,8 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  bottom: 0;
 }
 
 /* TABLET */
