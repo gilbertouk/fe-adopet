@@ -7,14 +7,14 @@ function LoginPage() {
     <>
       <div className="register-page">
         <Header />
-        <div className="container-main">
+        <section className="container-main">
           <img src="src/assets/logo-blue.svg" alt="logo" />
           <div className="register-page-p">
             <p>Already have an account? </p>
             <p>Sign in bellow!</p>
           </div>
           <SignInForm />
-        </div>
+        </section>
       </div>
       <Footer />
     </>

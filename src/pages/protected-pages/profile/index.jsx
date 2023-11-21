@@ -88,63 +88,67 @@ const Profile = () => {
 
   return (
     <>
-      <div className="home-page-container">
+      <div className="home-page-container contact-page-container">
         <Header signOut={signOut} urlPhoto={user.url_photo} />
         <h1 className="profile-page-title">
           This is the profile that will appear to the shelter that receives your
           message.
         </h1>
-      </div>
-      <div className="profile-container">
-        <h2>Profile</h2>
-        <form className="profile-form" onSubmit={handleSubmit(onSubmit)}>
-          <label>Picture</label>
 
-          {newPicture && (
-            <input
-              {...register('url_photo')}
-              placeholder="Enter the URL for the image"
-            />
-          )}
+        <div className="profile-container">
+          <h2>Profile</h2>
+          <form className="profile-form" onSubmit={handleSubmit(onSubmit)}>
+            <label>Picture</label>
 
-          {!newPicture && (
-            <button onClick={handleEditPicture} className="button-edit-picture">
-              <img
-                className="picture-profile"
-                src={user.url_photo}
-                alt="profile picture"
+            {newPicture && (
+              <input
+                {...register('url_photo')}
+                placeholder="Enter the URL for the image"
               />
-            </button>
-          )}
-          {!newPicture && (
-            <p className="change-picture">Click on picture to edit</p>
-          )}
+            )}
 
-          {errors.url_photo?.message && <p>{errors.url_photo?.message}</p>}
+            {!newPicture && (
+              <button
+                onClick={handleEditPicture}
+                className="button-edit-picture"
+              >
+                <img
+                  className="picture-profile"
+                  src={user.url_photo}
+                  alt="profile picture"
+                />
+              </button>
+            )}
+            {!newPicture && (
+              <p className="change-picture">Click on picture to edit</p>
+            )}
 
-          <label>Name</label>
-          <input {...register('name')} placeholder="Enter your full name" />
-          {errors.name?.message && <p>{errors.name?.message}</p>}
+            {errors.url_photo?.message && <p>{errors.url_photo?.message}</p>}
 
-          <label>Phone</label>
-          <input
-            {...register('phone')}
-            placeholder="Enter your phone number"
-            type="number"
-          />
-          {errors.phone?.message && <p>{errors.phone?.message}</p>}
+            <label>Name</label>
+            <input {...register('name')} placeholder="Enter your full name" />
+            {errors.name?.message && <p>{errors.name?.message}</p>}
 
-          <label>About you</label>
-          <textarea
-            {...register('about')}
-            placeholder="Describe a little about yourself"
-          />
-          {errors.about?.message && <p>{errors.about?.message}</p>}
+            <label>Phone</label>
+            <input
+              {...register('phone')}
+              placeholder="Enter your phone number"
+              type="number"
+            />
+            {errors.phone?.message && <p>{errors.phone?.message}</p>}
 
-          <div className="button-container">
-            <button type="submit">Save</button>
-          </div>
-        </form>
+            <label>About you</label>
+            <textarea
+              {...register('about')}
+              placeholder="Describe a little about yourself"
+            />
+            {errors.about?.message && <p>{errors.about?.message}</p>}
+
+            <div className="button-container">
+              <button type="submit">Save</button>
+            </div>
+          </form>
+        </div>
       </div>
       <Footer />
     </>

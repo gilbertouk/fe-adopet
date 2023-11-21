@@ -48,32 +48,13 @@ const Contact = () => {
     try {
       console.log(data);
       setPet({});
-      // navigate('/login', { state: { from: location }, replace: true });
     } catch (error) {
       console.log(error);
     }
   };
 
-  // useEffect(() => {
-  //   // const getPet = async () => {
-  //   //   try {
-  //   //     const response = await axiosPrivate.get(`/pet/${petId}`);
-  //   //     setPet(response.data.pet);
-  //   //   } catch (error) {
-  //   //     console.error(error);
-  //   //     navigate('/login', { state: { from: location }, replace: true });
-  //   //   }
-  //   // };
-
-  //   // getPet();
-
-  //   if (!pet.id) {
-  //     navigate('/home', { state: { from: location }, replace: true });
-  //   }
-  // }, [pet.id]);
-
   return (
-    <div className="home-page-container">
+    <div className="home-page-container contact-page-container">
       <Header signOut={signOut} />
       <p className="home-page-container-title">
         Send a message to <br /> the shelter caring for <br /> the animal:
