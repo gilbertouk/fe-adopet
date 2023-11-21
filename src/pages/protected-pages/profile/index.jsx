@@ -87,7 +87,7 @@ const Profile = () => {
   useEffect(() => {}, [newPicture]);
 
   return (
-    <>
+    <div className="main">
       <div className="home-page-container contact-page-container">
         <Header signOut={signOut} urlPhoto={user.url_photo} />
         <h1 className="profile-page-title">
@@ -151,7 +151,7 @@ const Profile = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
