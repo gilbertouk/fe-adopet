@@ -60,7 +60,7 @@ main {
   background-image: url('./assets/background-top.svg'),
     url('assets/footer-img.svg'), url('./assets/background-right.svg');
 
-  background-position: top left, center 105%, right 40%;
+  background-position: top left, center 102%, right 40%;
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-size: contain, 16rem, 20%;
   background-color: var(--blue-color);
@@ -114,9 +114,13 @@ main {
   font-weight: bold;
 }
 
-button:hover,
-button:focus {
+button:not(.button-logout):hover,
+button:not(.button-logout):focus {
   background-color: var(--button-hover-color);
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 /* REGISTER-PAGE */
@@ -458,7 +462,7 @@ button:focus {
     background-image: url('./assets/background-top.svg'),
       url('assets/footer-img.svg'), url('./assets/background-right.svg');
 
-    background-position: top left, center 90%, right 40%;
+    background-position: top left, center 102%, right 40%;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-size: 70%, 16rem, 18%;
     background-color: var(--blue-color);
@@ -557,7 +561,7 @@ button:focus {
     width: 100%;
   }
 
-  /* PROTECTED PROFILE PAGe */
+  /* PROTECTED PROFILE PAGE */
 
   .profile-page-title {
     margin-top: 7rem;
@@ -573,5 +577,83 @@ button:focus {
 
   .profile-form {
     width: 100%;
+  }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1280px) {
+  /* INITIAL PAGE */
+
+  .initial-page {
+    background-image: url('./assets/background-top.svg'),
+      url('assets/footer-img.svg'), url('./assets/background-right.svg');
+
+    background-position: top left, center 102%, right 40%;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: 35%, 16rem, 150px;
+    background-color: var(--blue-color);
+  }
+
+  /* REGISTER PAGE */
+
+  .register-page {
+    background-color: #ffffff;
+    background-image: url('./assets/paws.svg'),
+      url('./assets/background-top.svg'), url('./assets/background-right.svg');
+
+    background-position: top right, top left, right 40%;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: 200px, 35%, 150px;
+  }
+
+  /* PROTECTED HOME PAGE */
+
+  .home-page-container {
+    background-color: #ffffff;
+    background-image: url('./assets/background-top.svg'),
+      url('./assets/background-right.svg');
+
+    background-position: top left, right 40%;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 40%, 120px;
+  }
+
+  .home-page-container-title {
+    font-size: 1.125rem;
+  }
+
+  .home-page-container-title br {
+    display: none;
+  }
+
+  .pets-container {
+    width: 90vw;
+  }
+
+  /* PROTECTED CONTACT PAGE */
+
+  .contact-page-container {
+    background-color: #ffffff;
+    background-image: url('./assets/background-top.svg'),
+      url('./assets/background-right.svg');
+
+    background-position: top left, right 40%;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 40%, 120px;
+  }
+
+  .contact-form-container {
+    margin: 1rem auto;
+    width: 800px;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+
+  /* PROTECTED PROFILE PAGE */
+
+  .profile-container {
+    width: 800px;
   }
 }
