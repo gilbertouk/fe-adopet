@@ -6,13 +6,13 @@ function Header({ signOut, urlPhoto }) {
   const { auth } = useAuth();
 
   const iconsArrLogout = [
-    { src: 'src/assets/home.svg', alt: 'home icon', link: '/' },
-    { src: 'src/assets/messages.svg', alt: 'messages icon', link: '/support' },
+    { src: 'assets/home.svg', alt: 'home icon', link: '/' },
+    { src: 'assets/messages.svg', alt: 'messages icon', link: '/support' },
   ];
 
   const iconsArrLogged = [
-    { src: 'src/assets/home.svg', alt: 'home icon', link: '/home' },
-    { src: 'src/assets/messages.svg', alt: 'messages icon', link: '/support' },
+    { src: 'assets/home.svg', alt: 'home icon', link: '/home' },
+    { src: 'assets/messages.svg', alt: 'messages icon', link: '/support' },
   ];
 
   if (!signOut) {
@@ -22,7 +22,7 @@ function Header({ signOut, urlPhoto }) {
           <Link to={'/'}>
             <img
               className="logo-img-header"
-              src={'src/assets/logo.svg'}
+              src={'assets/logo.svg'}
               alt={'adopet logo'}
             />
           </Link>
@@ -49,7 +49,7 @@ function Header({ signOut, urlPhoto }) {
             <Link to={'/home'}>
               <img
                 className="logo-img-header"
-                src={'src/assets/logo.svg'}
+                src={'assets/logo.svg'}
                 alt={'adopet logo'}
               />
             </Link>
@@ -66,7 +66,7 @@ function Header({ signOut, urlPhoto }) {
           })}
           <li key={3}>
             <button onClick={signOut} className="button-logout">
-              <img src="src/assets/logout.svg" alt="logout icon" />
+              <img src="assets/logout.svg" alt="logout icon" />
             </button>
           </li>
 
