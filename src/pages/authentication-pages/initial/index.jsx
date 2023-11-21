@@ -22,7 +22,7 @@ const InitialPage = () => {
         <section className="container">
           <Header />
           <div className="container-main">
-            <img src="src/assets/logo.svg" alt="logo" />
+            <img src="/logo.svg" alt="logo" />
             <h1>Welcome!</h1>
             <p className="text-mobile">
               How about changing your life by adopting your new best friend?

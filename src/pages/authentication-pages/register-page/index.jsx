@@ -13,7 +13,7 @@ function RegisterPage() {
       <div className="register-page">
         <Header />
         <div className="container-main">
-          <img src="src/assets/logo-blue.svg" alt="logo" />
+          <img src="/logo-blue.svg" alt="logo" />
           <div className="register-page-p">
             {!next && (
               <>
