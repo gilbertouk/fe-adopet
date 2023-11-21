@@ -8,7 +8,7 @@ function LoginPage() {
       <div className="register-page">
         <Header />
         <section className="container-main">
-          <img src="src/assets/logo-blue.svg" alt="logo" />
+          <img src="/logo-blue.svg" alt="logo" />
           <div className="register-page-p">
             <p>Already have an account? </p>
             <p>Sign in bellow!</p>

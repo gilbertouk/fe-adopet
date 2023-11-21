@@ -79,7 +79,7 @@ const HomePage = () => {
                     >
                       <img
                         className="msg-icon"
-                        src="src/assets/msgicon.svg"
+                        src="/msgicon.svg"
                         alt="message icon"
                       />
                       <p className="pet-card-texts-contact">
