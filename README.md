@@ -4,11 +4,14 @@
 
 # Adopet: Adoption website | 4th Challenge Front-end Alura
 
-![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/gilbertouk/fe-adopet?style=for-the-badge&color=blue)
+![GitHub language count](https://img.shields.io/github/languages/count/gilbertouk/fe-adopet?style=for-the-badge&color=blue)
+![GitHub forks](https://img.shields.io/github/forks/gilbertouk/fe-adopet?style=for-the-badge&color=blue)
+![GitHub issues](https://img.shields.io/github/issues/gilbertouk/fe-adopet?style=for-the-badge&color=blue)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/gilbertouk/fe-adopet?style=for-the-badge&color=blue)
+![GitHub License](https://img.shields.io/github/license/gilbertouk/fe-adopet?style=for-the-badge&color=blue)
+
+
 
 <img src="public/logo.svg" alt="Exemplo imagem">
 
