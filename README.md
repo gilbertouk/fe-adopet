@@ -29,11 +29,11 @@ The project is still in development and the next updates will focus on the follo
 
 Link to the hosted version of the Front-End below.
 
-https://frolicking-blancmange-19553a.netlify.app/articles
+https://jocular-nougat-8b4074.netlify.app/
 
 Link to the Back-End project below.
 
-https://github.com/gilbertouk/be-nc-news
+https://github.com/gilbertouk/be-adopet
 
 ## 💻 Prerequisites
 
