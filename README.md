@@ -4,12 +4,12 @@
 
 # Adopet: Adoption website | 4th Challenge Front-end Alura
 
-![GitHub repo size](https://img.shields.io/github/repo-size/gilbertouk/fe-adopet?style=for-the-badge&color=blue)
-![GitHub language count](https://img.shields.io/github/languages/count/gilbertouk/fe-adopet?style=for-the-badge&color=blue)
-![GitHub forks](https://img.shields.io/github/forks/gilbertouk/fe-adopet?style=for-the-badge&color=blue)
-![GitHub issues](https://img.shields.io/github/issues/gilbertouk/fe-adopet?style=for-the-badge&color=blue)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/gilbertouk/fe-adopet?style=for-the-badge&color=blue)
-![GitHub License](https://img.shields.io/github/license/gilbertouk/fe-adopet?style=for-the-badge&color=blue)
+![GitHub repo size](https://img.shields.io/github/repo-size/gilbertouk/fe-adopet?color=blue)
+![GitHub language count](https://img.shields.io/github/languages/count/gilbertouk/fe-adopet?color=blue)
+![GitHub forks](https://img.shields.io/github/forks/gilbertouk/fe-adopet?color=blue)
+![GitHub issues](https://img.shields.io/github/issues/gilbertouk/fe-adopet?color=blue)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/gilbertouk/fe-adopet?color=blue)
+![GitHub License](https://img.shields.io/github/license/gilbertouk/fe-adopet?color=blue)
 
 
 
